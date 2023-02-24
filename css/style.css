@@ -840,13 +840,13 @@ main .container .right {
     }
 
     /* ---------- NOTIFICATION POPUP --------- */
-    .left .notification-popup {
+    .left .notifications-popup {
         position: absolute;
         left: -20rem;
         width: 20rem;
     }
 
-    .left .notification-popup::before {
+    .left .notifications-popup::before {
         display: absolute;
         top: 1.3rem;
         left: calc(20rem - 0.6rem);
