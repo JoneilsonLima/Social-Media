@@ -897,15 +897,21 @@ main .container .right {
     .customize-theme {
         width: 100%;
     }
+
+    .customize-theme .card {
+        padding: 1rem;
+    }
+
+    
+    .customize-theme .font-size {
+        margin-top: 2rem;
+    }
 }
 
 @media screen and (max-width: 420px) {
     .customize-theme .card {
         width: 98vw;
-    }
-
-    .customize-theme .font-size {
-        margin-top: 2rem;
+        padding: 1rem;
     }
 }
 
