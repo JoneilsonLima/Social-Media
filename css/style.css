@@ -659,6 +659,7 @@ main .container .right {
     padding: 3rem;
     border-radius: var(--card-border-radius);
     width: 50%;
+    box-shadow: 0 0 1rem var(--color-primary);
 }
 
 /* ----------------- FONT SIZE -----------------*/
@@ -822,6 +823,10 @@ main .container .right {
     .left .btn {
         display: none;
     }
+
+    .customize-theme .card {
+        width: 80vw;
+    }
 }
 
 /*================= MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES ===================*/
@@ -869,4 +874,19 @@ main .container .right {
     main .container .right {
         display: none;
     }
+
+    .customize-theme .card {
+        width: 92vw;
+    }
 }
+
+@media screen and (max-width: 530px) {
+    .choose-bg {
+        flex-direction: column;
+    }
+
+    .choose-bg .bg-1 {
+        margin-top: 1rem;
+    }
+}
+
