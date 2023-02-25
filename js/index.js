@@ -13,6 +13,10 @@ const theme = document.querySelector('#theme');
 const themeModal = document.querySelector('.customize-theme');
 const fontSize = document.querySelectorAll('.choose-size span');
 var root = document.querySelector(':root');
+const colorPalette = document.querySelectorAll('.choose-color span');
+const bg1 = document.querySelector('.bg-1');
+const bg2 = document.querySelector('.bg-2');
+const bg3 = document.querySelector('.bg-3');
 
 // =============== SIDEBAR =============
 
@@ -129,5 +133,85 @@ fontSize.forEach(size => {
 
 })
 
+// remove active class from colors
+const changeActiveColorClass = () => {
+    colorPalette.forEach(colorPicker => {
+        colorPicker.classList.remove('active');
+    })
+}
 
 // change primary colors
+colorPalette.forEach(color => {
+    color.addEventListener('click', () => {
+        let primary;
+        // remove active class from colors
+        changeActiveColorClass();
+
+        if(color.classList.contains('color-1')) {
+            primaryHue = 252;
+        } else if(color.classList.contains('color-2')) {
+            primaryHue = 52;
+        } else if(color.classList.contains('color-3')) {
+            primaryHue = 352;
+        } else if(color.classList.contains('color-4')) {
+            primaryHue = 152;
+        } else if(color.classList.contains('color-5')) {
+            primaryHue = 202;
+        }
+        color.classList.add('active');
+
+        root.style.setProperty('--primary-color-hue', primaryHue);
+    })
+})
+
+
+
+// theme BACKGROUND values
+let lightColorLightness;
+let whiteColorLightness;
+let darkColorLightness;
+
+// change background color 
+const changeBG = () => {
+    root.style.setProperty('--light-color-lightness', lightColorLightness);
+    root.style.setProperty('--white-color-lightness', whiteColorLightness);
+    root.style.setProperty('--dark-color-lightness', darkColorLightness);
+}
+
+bg1.addEventListener('click', () => {
+    // add active class
+    bg1.classList.add('active');
+    // remove active class from the others
+    bg2.classList.remove('active');
+    bg3.classList.remove('active');
+    // remove customized changes from local storage
+    window.location.reload();
+})
+
+bg2.addEventListener('click', () => {
+    darkColorLightness = '95%';
+    whiteColorLightness = '20%';
+    lightColorLightness = '15%';
+
+    // add active class
+    bg2.classList.add('active');
+    //remove active class from the others
+    bg1.classList.remove('active');
+    bg3.classList.remove('active');
+    changeBG();
+})
+
+bg3.addEventListener('click', () => {
+    darkColorLightness = '95%';
+    whiteColorLightness = '10%';
+    lightColorLightness = '0%';
+
+    // add active class
+    bg2.classList.add('active');
+    //remove active class from the others
+    bg1.classList.remove('active');
+    bg3.classList.remove('active');
+    changeBG();
+})
+
+// END
